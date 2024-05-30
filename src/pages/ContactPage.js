@@ -32,6 +32,8 @@ function ContactPage() {
 
   const handleCreate = async () => {
     await addDoc(value, { name1: fname, name2: lname });
+    setFname("");
+    setLname("");
   };
 
   const handleDelete = async (id) => {
@@ -49,6 +51,9 @@ function ContactPage() {
   const handleUpdate = async () => {
     const updateData = doc(database, "demo", id);
     await updateDoc(updateData, { name1: fname, name2: lname });
+    setShow(false);
+    setFname("");
+    setLname("");
   };
 
   return (
